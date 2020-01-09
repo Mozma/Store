@@ -59,6 +59,8 @@ namespace Store
                               $"\n\tЦена: {products[bigestPrice].Price}");
 
             Console.WriteLine("\n");
+
+            //Test commit
         }
     }
 }
