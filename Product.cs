@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store
 {
@@ -17,6 +13,15 @@ namespace Store
 
             Name = "Товар №" + rnd.Next(0, 100);
             Price = rnd.Next(1000, 1000000);
+        }
+
+        public static bool operator < (Product p1, Product p2)
+        {
+            return p1.Price < p2.Price;
+        }
+        public static bool operator > (Product p1, Product p2)
+        {
+            return p1.Price > p2.Price;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Store
             var cashBox = new StoreCashbox();
             var customers = new List<Customer>();
             var products = new List<Product>();
-            var bigestPrice = 0;
+            var bigestPrice = new Product();
             var bigestPurchase = 0;
 
             var rnd = new Random();
@@ -40,9 +40,9 @@ namespace Store
                 
                 cashBox.newPurchase(customers[rnd1].Buy(products[rnd2].Price));
                 
-                if (products[rnd2].Price > bigestPrice)
+                if (products[rnd2] > bigestPrice)
                 {
-                    bigestPrice = rnd2;
+                    bigestPrice = products[rnd2];
                     bigestPurchase = rnd1;
                 }
             }
@@ -55,8 +55,8 @@ namespace Store
             Console.WriteLine($"Средний чек: {cashBox.Money / cashBox.Purchases }");
             Console.WriteLine($"\nБольше всех потратил покупатель: " +
                               $"\n\tId:{customers[bigestPurchase].CustomerId}" +
-                              $"\n\tНаименование: {products[bigestPrice].Name}" +
-                              $"\n\tЦена: {products[bigestPrice].Price}");
+                              $"\n\tНаименование: {bigestPrice.Name}" +
+                              $"\n\tЦена: {bigestPrice.Price}");
 
             Console.WriteLine("\n");
 
