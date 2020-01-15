@@ -11,19 +11,27 @@ namespace Store
         public double CustomerId { get; set; }
         public double Budget { get; set; }
 
+        static Random rnd = new Random();
+
         public Customer()
         {
-            var rnd = new Random();
             CustomerId = rnd.Next(0, 1000000);
-            Budget = rnd.Next(0, 10000000);
+            Budget = rnd.Next(0, 1000000);
         }
 
-        public double Buy(double price)
+        public Customer(double id, double budget)
         {
-            if (Budget - price > 0)
-                Budget -= price;
+            CustomerId = id;
+            Budget = budget;
+        }
+      
 
-            return price; 
+        public double Buy(Product product)
+        {
+            if (Budget - product.Price > 0)
+                Budget -= product.Price;
+
+            return product.Price; 
         }
 
 

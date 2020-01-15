@@ -4,17 +4,20 @@ namespace Store
 {
     class Product
     {
+       
+
         public string Name { get; set; }
         public double Price { get; set; }
 
+        static Random rnd = new Random();
+
         public Product()
         {
-            var rnd = new Random();
+           
 
             Name = "Товар №" + rnd.Next(0, 100);
-            Price = rnd.Next(1000, 1000000);
+            Price = rnd.Next(10000, 100000);
         }
-
         public static bool operator < (Product p1, Product p2)
         {
             return p1.Price < p2.Price;
